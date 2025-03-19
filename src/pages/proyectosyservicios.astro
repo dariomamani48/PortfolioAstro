@@ -1,0 +1,139 @@
+---
+// src/pages/formacion.astro
+import Proyectos from '../components/Proyectos.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Servicios from '../components/Servicios.astro';
+---
+
+<BaseLayout>
+  <section class="projects-services">
+    <div class="hero">
+      <div class="glass-panel">
+        <h1 class="hero-title">Proyectos y Servicios</h1>
+        <p class="hero-subtitle">
+          Trabajemos juntos y hagamos realidad tus ideas tecnológicas.
+        </p>
+        <a href="#contacto" class="btn primary-btn">Contáctame</a>
+      </div>
+    </div>
+  </section>
+  <Proyectos /> 
+  <Servicios />
+</BaseLayout>
+
+
+<style>
+  /* Importación de la fuente moderna Poppins */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+  /* Reset básico */
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Sección principal */
+  .projects-services {
+    width: 100%;
+  }
+
+  /* Hero con fondo de imagen (puedes reemplazar la ruta con la imagen de tu preferencia) */
+  .hero {
+    position: relative;
+    width: 100%;
+    min-height: 90vh;
+    background: url('/img/proyectos/proyecto-hero.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    animation: fadeIn 1s ease-out;
+  }
+
+  /* Panel con efecto glassmorfismo */
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: slideUp 1s ease-out;
+  }
+
+  /* Títulos y subtítulos con sombra para mayor legibilidad sobre fondos complejos */
+  .hero-title {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Botón de llamada a la acción */
+  .btn {
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .primary-btn {
+    background-color: #ff6b6b;
+    color: #fff;
+  }
+
+  .primary-btn:hover {
+    background-color: #ff5252;
+    transform: scale(1.05);
+  }
+
+  /* Animaciones de entrada */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsividad */
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.25rem;
+    }
+    .hero-subtitle {
+      font-size: 1.2rem;
+    }
+    .glass-panel {
+      padding: 1.5rem;
+    }
+  }
+</style>

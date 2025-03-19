@@ -1,0 +1,188 @@
+---
+// Datos de ejemplo para 6 proyectos
+const projects = [
+  {
+    id: 1,
+    title: "Proyecto SFS ingeniería",
+    description: "Proyecto de diseño y desarrollo de página web para empresa de ingeniería.",
+    image: "../img/proyectos/proyecto-sfs.png",
+    link: "https://www.sfsingenieria.com"
+  },
+  {
+    id: 2,
+    title: "Proyecto BIOSS",
+    description: "Proyecto de diseño y desarrollo de página web para empresa de reforestacion",
+    image: "../img/proyectos/proyecto-bioss.png",
+    link: "https://proyecto-bioss-preliminar.netlify.app/"
+  },
+  {
+    id: 3,
+    title: "Api de Rick and Morty con REACT",
+    description: "Un Proyecto consumiendo una appi con React",
+    image: "../img/proyectos/proyecto-rick.png",
+    link: "https://rickandmortydmpractica.netlify.app/"
+  },
+  {
+    id: 4,
+    title: "Api de CLima con Angular",
+    description: "Un Proyecto consumiendo una appi de clima con Angular",
+    image: "../img/proyectos/proyecto-clima.png",
+    link: "https://appclimadariomamani.netlify.app/"
+  }
+  
+  
+];
+---
+
+<section class="projects">
+  <h2 class="section-title">Ultimos Proyectos</h2>
+  <div class="projects-grid">
+    {projects.map((project, index) => (
+      <div class="project-card" style={`--delay: ${0.3 + index * 0.15}s`}>
+        <img src={project.image} alt={`Imagen de ${project.title}`} class="project-image" />
+        <div class="project-content">
+          <h3 class="project-title">{project.title}</h3>
+          <p class="project-description">{project.description}</p>
+          <a href={project.link} target="_blank" class="project-link">Ver más</a>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  /* Importamos la fuente Poppins para la coherencia de la tipografía */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+  /* Reset básico */
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Contenedor de la sección */
+  .projects {
+    padding: 4rem 2rem;
+    background-color: #f9f9f9;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+
+  /* Grid de proyectos */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Tarjeta de proyecto */
+  .project-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  /* Animación por cada tarjeta al hacerse visible */
+  .project-card.visible {
+    animation: fadeInUp 0.5s forwards;
+    animation-delay: var(--delay, 0s);
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Animación hover para mayor impacto visual */
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Imagen del proyecto */
+  .project-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  /* Contenido de la tarjeta */
+  .project-content {
+    padding: 1rem;
+  }
+
+  .project-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+
+  .project-description {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #666;
+  }
+
+  .project-link {
+    text-decoration: none;
+    color: #ff6b6b;
+    font-weight: 700;
+    transition: color 0.3s ease;
+  }
+
+  .project-link:hover {
+    color: #ff5252;
+  }
+
+  /* Responsividad con media queries */
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2rem;
+    }
+    .project-image {
+      height: 150px;
+    }
+  }
+</style>
+
+<script is:inline>
+  // Observa cada tarjeta y agrega la clase 'visible' cuando ésta entra en el viewport.
+  const projectCards = document.querySelectorAll('.project-card');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  projectCards.forEach(card => {
+    observer.observe(card);
+  });
+</script>

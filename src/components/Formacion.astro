@@ -1,0 +1,235 @@
+---
+// Formacion.astro
+
+// Array con los datos de las formaciones académicas (tarjetas)
+const academicFormations = [
+  {
+    id: 1,
+    name: "Técnico Superior en Desarrollo de Software",
+    image: "/img/formacion/ies.jpg",
+    description:
+      "Instituto de Enseñanza Superior Tafi Viejo – Extensión Aulica Yerba Buena, Tucumán. Inicio: Abril 2023 – Actualidad."
+  },
+  {
+    id: 2,
+    name: "Programación Web Full-Stack",
+    image: "/img/formacion/digitalHouse.jpg",
+    description:
+      "Digital House. Contenidos: HTML5, CSS3, JavaScript, Node.js, MySQL, React; Herramientas colaborativas (GitHub, Trello); Metodologías ágiles (SCRUM). Período: Abril – Noviembre 2021."
+  },
+  {
+    id: 3,
+    name: "Proyecto Argentina Programa – Desarrollador Web Full-Stack",
+    image: "/img/formacion/argentina.jpg",
+    description:
+      "Remoto y asincrónico. Período: Noviembre 2021 – Julio 2022."
+  }
+];
+---
+
+<!-- Hero propio de la sección Formación -->
+<section class="formation-hero">
+  <div class="hero-content">
+    <h1>Formación</h1>
+    <p>Descubre mi camino de aprendizaje en desarrollo y diseño web</p>
+  </div>
+</section>
+
+<!-- Sección principal de Formación (incluye tarjetas de Formación Académica) -->
+<section class="formation-content" id="formacion">
+  <div class="container">
+    <!-- Sección de tarjetas de Formación Académica -->
+    <section class="formation-cards">
+      <h2>Formación Académica</h2>
+      <div class="cards-container">
+        {academicFormations.map((formation) => (
+          <div class="card">
+            <img src={formation.image} alt={formation.name} class="card-logo" />
+            <h3>{formation.name}</h3>
+            <p>{formation.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Puedes incluir aquí otras secciones, como Certificaciones, según lo necesites -->
+    <!-- Por ejemplo: -->
+    <section class="certifications">
+      <h2>Cursos y Certificaciones Adicionales</h2>
+      <div class="certification-item">
+        <h3>UI/UX Designer</h3>
+        <p>Educación IT & Proyecto Digit@lers Telecom</p>
+        <p><strong>Período:</strong> Mayo – Noviembre 2021</p>
+        <p>
+          <strong>Contenido:</strong> Adobe Photoshop e Illustrator, fundamentos de HTML5, introducción a UX/UI, User Research, UX Writing y Google Analytics.
+        </p>
+      </div>
+      <div class="certification-item">
+        <h3>English for Software Development</h3>
+        <p>Centro Universitario de Idiomas – Facultad de Agronomía, UBA</p>
+        <p><strong>Finalizado:</strong> Diciembre 2022</p>
+      </div>
+    </section>
+  </div>
+</section>
+
+<style>
+  /* Importación de la fuente moderna Poppins */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+  /* Reset básico */
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Hero de Formación */
+  .formation-hero {
+    background: linear-gradient(135deg, #ff6b6b, #ff5252);
+    color: #fff;
+    text-align: center;
+    padding: 4rem 1rem;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.25rem;
+  }
+
+  /* Contenedor general de la sección de formación */
+  .formation-content {
+    padding: 4rem 1rem;
+    background: #f9f9f9;
+    animation: fadeIn 1s ease-out 0.5s forwards;
+    opacity: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 3rem;
+  }
+  
+  /* Sección de Tarjetas de Formación Académica */
+  .formation-cards h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #ff5252;
+    border-bottom: 2px solid #ff6b6b;
+    padding-bottom: 0.5rem;
+  }
+  
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-logo {
+    width: 100px;
+    height: auto;
+    margin: 0 auto 1rem;
+  }
+  
+  .card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  /* Sección de Certificaciones */
+  .certifications {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .certifications h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #ff5252;
+    border-bottom: 2px solid #ff6b6b;
+    padding-bottom: 0.5rem;
+  }
+  
+  .certification-item {
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 0.8s forwards;
+  }
+  
+  .certification-item h3 {
+    font-size: 1.5rem;
+    color: #ff5252;
+    margin-bottom: 0.5rem;
+  }
+  
+  .certification-item p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+  
+  /* Responsividad */
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2.25rem;
+    }
+    .hero-content p {
+      font-size: 1rem;
+    }
+    .cards-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Animaciones */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

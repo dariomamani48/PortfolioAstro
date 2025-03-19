@@ -1,0 +1,186 @@
+---
+// Este componente no requiere props adicionales.
+---
+
+<section class="hero">
+    <!-- Capa overlay para mejorar contraste -->
+    <div class="overlay"></div>
+  
+    <!-- Contenedor de contenido. Posicionado a la izquierda en desktop -->
+    <div class="content">
+      <h1 class="hero-title">Bienvenido a Mi Portfolio</h1>
+      <p class="hero-subtitle">
+        Desarrollador web &amp; diseñador creativo. Explora mis proyectos y descubre mi estilo.
+      </p>
+      <div class="hero-actions">
+        <a href="/proyectosyservicios" class="btn primary-btn">Ver Proyectos</a>
+        <a href="#contacto" class="btn secondary-btn">Contacto</a>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    /* Importamos la fuente moderna Poppins */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+  
+    /* Reset básico */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+    /* Contenedor principal del hero */
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 90vh;
+      background: url('img/hero/hero.jpg') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+    }
+  
+    /* Overlay para oscurecer la imagen de fondo y mejorar la legibilidad */
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+  
+    /* Contenedor de contenido */
+    .content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+  
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+  
+    .hero-subtitle {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+  
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+    }
+  
+    /* Botones de llamada a la acción */
+    .btn {
+      text-decoration: none;
+      font-weight: 700;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px; /* Bordes redondeados modernos */
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+  
+    .primary-btn {
+      background-color: #ff6b6b;
+      color: #fff;
+    }
+  
+    .primary-btn:hover {
+      background-color: #ff5252;
+      transform: scale(1.05);
+    }
+  
+    .secondary-btn {
+      background-color: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+    }
+  
+    .secondary-btn:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
+  
+    /* Keyframes para la animación fadeInUp */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    /* Estado inicial de los elementos del contenido */
+    .content > * {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  
+    /* Cuando se activa la animación agregando la clase .visible */
+    .content.visible .hero-title {
+      animation: fadeInUp 1s forwards;
+      animation-delay: 0.5s;
+    }
+  
+    .content.visible .hero-subtitle {
+      animation: fadeInUp 1s forwards;
+      animation-delay: 1s;
+    }
+  
+    .content.visible .hero-actions {
+      animation: fadeInUp 1s forwards;
+      animation-delay: 1.5s;
+    }
+  
+    /* Responsividad */
+    @media (max-width: 768px) {
+      .hero {
+        justify-content: center;
+        text-align: center;
+        padding: 0 1rem;
+      }
+      .content {
+        max-width: 90%;
+      }
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      .hero-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: center;
+      }
+    }
+  </style>
+  
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const heroContent = document.querySelector('.content');
+      if (heroContent) {
+        // Utilizamos IntersectionObserver para activar la animación cuando el contenido es visible (o en carga)
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              heroContent.classList.add('visible');
+              observer.unobserve(heroContent);
+            }
+          });
+        }, { threshold: 0.5 }); // Umbral ajustable
+  
+        observer.observe(heroContent);
+      }
+    });
+  </script>
+  

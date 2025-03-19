@@ -1,0 +1,159 @@
+---
+// Contacto.astro
+// Este componente no requiere props adicionales.
+---
+
+<!-- Hero de la sección de contacto -->
+<section class="contact-hero">
+    <div class="hero-content">
+      <h1>Contáctame</h1>
+      <p>
+        Estoy listo para llevar tu proyecto al siguiente nivel. ¡Hablemos y construyamos juntos el futuro digital!
+      </p>
+    </div>
+  </section>
+  
+  <!-- Opciones de contacto -->
+  <section class="contact-options">
+    <div class="container">
+      <h2>Elige tu medio de contacto</h2>
+      <div class="contact-buttons">
+        <a href="https://www.instagram.com/dario_mamani90/" target="_blank" class="contact-btn instagram">
+          <i class="fa-brands fa-instagram"></i> Instagram
+        </a>
+        <a href="mailto:dariomamani48@gmial.com" class="contact-btn email">
+          <i class="fa-solid fa-envelope"></i> Correo
+        </a>
+        <a href="https://wa.me/543816526707" target="_blank" class="contact-btn whatsapp">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="https://www.linkedin.com/in/dario-mamani/" target="_blank" class="contact-btn linkedin">
+          <i class="fa-brands fa-linkedin"></i> LinkedIn
+        </a>
+      </div>
+      <div class="extra-options">
+        <p>
+          ¿Tienes alguna consulta o necesitas más información? También podemos programar una llamada o una reunión virtual para profundizar en tus necesidades.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    /* Importamos la fuente moderna Poppins */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+  
+    /* Reset básico */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  
+    /* HERO - Sección de Contacto */
+    .contact-hero {
+      background: linear-gradient(135deg, #ff6b6b, #ff5252);
+      color: #fff;
+      text-align: center;
+      padding: 4rem 1rem;
+      animation: fadeIn 1s ease-out;
+    }
+  
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+  
+    .hero-content p {
+      font-size: 1.25rem;
+    }
+  
+    /* OPCIONES DE CONTACTO */
+    .contact-options {
+      padding: 4rem 1rem;
+      background: #f9f9f9;
+      text-align: center;
+      animation: fadeIn 1s ease-out 0.5s forwards;
+      opacity: 0;
+    }
+  
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  
+    .contact-options h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+  
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+  
+    .contact-btn {
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.8);
+      border: 2px solid #ddd;
+      border-radius: 50px;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #333;
+      transition: transform 0.3s ease, background 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  
+    .contact-btn:hover {
+      transform: scale(1.05);
+      background: #ff6b6b;
+      color: #fff;
+    }
+  
+    .contact-btn.instagram { border-color: #E4405F; }
+    .contact-btn.email { border-color: #D44638; }
+    .contact-btn.whatsapp { border-color: #25D366; }
+    .contact-btn.linkedin { border-color: #0077B5; }
+  
+    .extra-options {
+      margin-top: 2rem;
+      font-size: 1.8rem;
+      color: #555;
+    }
+  
+    /* Animaciones */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    /* Responsividad */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.25rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+      .contact-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+  

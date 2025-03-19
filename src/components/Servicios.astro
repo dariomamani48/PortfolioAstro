@@ -1,0 +1,132 @@
+---
+// Servicios.astro
+
+// Definimos un array con las informaciones de cada servicio.
+const services = [
+  {
+    id: 1,
+    title: "Diseño Web",
+    description:
+      "Creamos diseños visualmente impactantes con interfaces limpias y modernas para que tu marca brille en línea.",
+    icon: "fa-solid fa-palette" // Usamos el ícono de paleta (diseño)
+  },
+  {
+    id: 2,
+    title: "Desarrollo Web",
+    description:
+      "Construimos sitios robustos y escalables utilizando las últimas tecnologías y frameworks, optimizando cada línea de código.",
+    icon: "fa-solid fa-code" // Ícono de código
+  },
+  {
+    id: 3,
+    title: "Mantenimiento",
+    description:
+      "Ofrecemos servicio continuo de mantenimiento y soporte para que tu sitio web funcione de manera óptima todo el tiempo.",
+    icon: "fa-solid fa-wrench" // Ícono de herramienta (mantenimiento)
+  }
+];
+---
+
+<section class="services">
+  <div class="services-container">
+    {services.map((service, index) => (
+      <div class="service-card" style={`animation-delay: ${0.3 * index}s;`} data-key={service.id}>
+        <div class="service-icon">
+          <i class={service.icon}></i>
+        </div>
+        <h3>{service.title}</h3>
+        <p>{service.description}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  /* Importamos la fuente moderna Poppins para coherencia */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+  /* Reset básico */
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Contenedor principal de la sección */
+  .services {
+    padding: 4rem 1rem;
+    background: #fff;
+    text-align: center;
+  }
+
+  /* Grid responsivo para las tarjetas */
+  .services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  /* Tarjeta de servicio con efecto glassmorfismo sutil (opcional) */
+  .service-card {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0;
+  }
+
+  .service-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Ícono descriptivo */
+  .service-icon {
+    font-size: 3rem;
+    color: #ff5252;
+    margin-bottom: 1rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  .service-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  /* Animación de entrada */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Ajustes responsivos */
+  @media (max-width: 768px) {
+    .service-icon {
+      font-size: 2.5rem;
+    }
+    .service-card h3 {
+      font-size: 1.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,160 @@
+---
+// Componente SobreMi.astro sin props adicionales.
+---
+
+<section class="about-me" id="sobre-mi">
+    <div class="about-container">
+      <!-- Columna para la imagen -->
+      <div class="about-image">
+        <img src="/img/sobreMi/perfil.png" alt="Mi foto" />
+      </div>
+  
+      <!-- Columna de contenido -->
+      <div class="about-content">
+        <h2 class="section-title">Sobre Mi</h2>
+        <p class="about-description">
+          Soy un apasionado del desarrollo y el diseño web, siempre en la búsqueda de crear sitios modernos e innovadores. Me encanta explorar nuevas tecnologías y tendencias para ofrecer soluciones digitales de alta calidad.
+        </p>
+        <p class="about-description">
+          Tengo experiencia trabajando en proyectos freelance y colaborando en equipos dentro de compañías, donde aprendo y comparto conocimientos constantemente. Creo que la fusión de creatividad y tecnología es la clave para transformar ideas en realidades impactantes.
+        </p>
+        <div class="about-actions">
+          <a href="#contacto" class="btn primary-btn">Ver Contacto</a>
+          <a href="/formacionPage" class="btn secondary-btn">Ver Formación</a>
+        </div>
+        <p class="about-closing">
+          ¡Juntos podemos crear proyectos extraordinarios y transformar el futuro digital!
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    /* Importamos la fuente moderna Poppins */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+  
+    /* Reset básico */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  
+    .about-me {
+      padding: 4rem 2rem;
+      background-color: #f9f9f9;
+      font-family: 'Poppins', sans-serif;
+    }
+  
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInSection 1s forwards;
+    }
+  
+    @keyframes fadeInSection {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    /* Columna de la imagen */
+    .about-image {
+      text-align: center;
+    }
+  
+    .about-image img {
+      max-width: 100%;
+      border-radius: 15px;
+    }
+  
+    /* Columna de contenido */
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+  
+    .about-description {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+  
+    .about-actions {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+    }
+  
+    .btn {
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+  
+    .primary-btn {
+      background-color: #ff6b6b;
+      color: #fff;
+    }
+  
+    .primary-btn:hover {
+      background-color: #ff5252;
+      transform: scale(1.05);
+    }
+  
+    .secondary-btn {
+      background-color: transparent;
+      border: 2px solid #ff6b6b;
+      color: #ff6b6b;
+    }
+  
+    .secondary-btn:hover {
+      background-color: #ff6b6b;
+      color: #fff;
+      transform: scale(1.05);
+    }
+  
+    .about-closing {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #333;
+    }
+  
+    /* Responsividad */
+    @media (max-width: 768px) {
+      .about-container {
+        grid-template-columns: 1fr;
+      }
+      .about-image {
+        order: -1;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+      .about-description {
+        font-size: 1rem;
+      }
+      .about-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+  
