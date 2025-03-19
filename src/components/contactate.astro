@@ -36,6 +36,14 @@
           ¿Tienes alguna consulta o necesitas más información? También podemos programar una llamada o una reunión virtual para profundizar en tus necesidades.
         </p>
       </div>
+      <!-- Botón para descargar el CV -->
+    <div class="cv-download">
+        <a href="/DARIO-MAMANIcv.pdf" download class="btn cv-btn">
+          <i class="fa-solid fa-download"></i> Descargar mi CV
+        </a>
+        <p class="cv-note">Descarga mi currículum para conocer más sobre mi experiencia.</p>
+      </div>
+    </div>
     </div>
   </section>
   
@@ -130,6 +138,40 @@
       font-size: 1.8rem;
       color: #555;
     }
+    /* ===================== */
+  /* BOTÓN DE DESCARGA DEL CV */
+  .cv-download {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  .cv-btn {
+    text-decoration: none;
+    background: #fff;
+    border: 2px solid #333;
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    transition: transform 0.3s ease, background 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .cv-btn:hover {
+    transform: scale(1.05);
+    background: #333;
+    color: #fff;
+    border-color: #333;
+  }
+  
+  .cv-note {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #555;
+  }
   
     /* Animaciones */
     @keyframes fadeIn {
